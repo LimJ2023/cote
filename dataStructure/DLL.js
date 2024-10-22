@@ -24,6 +24,7 @@ class DoublyLinkedList {
       this.tail = node;
     }
     this.length++;
+    return this;
   }
   pop() {
     if (!this.head) {

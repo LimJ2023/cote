@@ -1,9 +1,11 @@
 //이진검색은 정렬된 배열을 받는다.
 
-//내가 만들어본 코드
 function binarySearch(arr, val) {
+  //시작 인덱스
   let left = 0;
+  //끝 인덱스
   let right = arr.length - 1;
+  //중간 지점을 가르킬 포인터
   let middle = Math.floor(right / 2);
   while (left <= right) {
     //배열의 중간점 찾기
@@ -11,11 +13,10 @@ function binarySearch(arr, val) {
       return middle;
     } else if (val < arr[middle]) {
       right = middle - 1;
-      middle = Math.floor((right + left) / 2);
     } else {
       left = middle + 1;
-      middle = Math.floor((right + left) / 2);
     }
+    middle = Math.floor((right + left) / 2);
   }
   return -1;
 }

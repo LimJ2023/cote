@@ -8,7 +8,6 @@ function insertionSort(arr) {
     [arr[id1], arr[id2]] = [arr[id2], arr[id1]];
   };
   const result = [];
-  //단순히 스왑만으론 안될거 같은데..
   for (let i = 1; i < arr.length; i++) {
     for (let j = i - 1; j >= 0; j--) {
       if (arr[i] < arr[j]) {

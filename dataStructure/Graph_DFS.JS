@@ -22,7 +22,7 @@ class Graph {
     }
     delete this.adjacencyList[vertex];
   }
-  DepthfirstSearch(start) {
+  DepthfirstRecursive(start) {
     const result = [];
     const visited = {};
     const adjacencyList = this.adjacencyList;
@@ -45,6 +45,29 @@ class Graph {
 
     return result;
   }
+
+  DepthFirstIterative(start) {
+    // 스택 만들기
+    const stack = [start];
+    const result = [];
+    const visited = {};
+
+    visited[start] = true;
+    let currentVertex;
+
+    while (stack.length) {
+      currentVertex = stack.pop();
+      result.push(currentVertex);
+
+      this.adjacencyList[currentVertex].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = ture;
+          stack.push(neighbor);
+        }
+      });
+    }
+    return result;
+  }
 }
 
 const g = new Graph();
@@ -63,4 +86,4 @@ g.addEdge("D", "E");
 g.addEdge("D", "F");
 g.addEdge("E", "F");
 
-console.log(g.DepthfirstSearch("A"));
+console.log(g.DepthfirstRecursive("A"));

@@ -7,6 +7,7 @@ function solution(a, b, c, d) {
     counter.set(num, (counter.get(num) || 0) + 1);
   });
 
+  
   const keys = Array.from(counter.keys());
   const values = Array.from(counter.values());
   console.log("dice종류 : ", keys, " 카운트 : ", values);
